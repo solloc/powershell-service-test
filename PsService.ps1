@@ -11,6 +11,11 @@ $source = @"
     }
 "@
 
-Write-Output $basicTest.ToString()
+# Write-Output $source.ToString()
+
+$FileName = "service.exe"
+If (Test-Path $FileName){
+   Remove-Item $FileName
+}
 
 Add-Type -TypeDefinition $source -OutputAssembly "service.exe"
